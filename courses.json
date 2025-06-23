@@ -1,0 +1,163 @@
+[
+  {
+    "code": "COMP 1010",
+    "name": "Introductory Computer Science 1",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "COMP 1020",
+    "name": "Introductory Computer Science 2",
+    "min_grade": "B",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "MATH 1220",
+    "name": "Linear Algebra 1",
+    "min_grade": "C+",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "MATH 1230",
+    "name": "Differential Calculus",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "MATH 1240",
+    "name": "Elementary Discrete Mathematics",
+    "min_grade": "B",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "MATH 1700",
+    "name": "Calculus 2",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "STAT 1150",
+    "name": "Introduction to Statistics and Computing",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "COMP 2080",
+    "name": "Algorithms: Design and Implementation",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "COMP 2140",
+    "name": "Data Structures: Analysis and Implementation",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "COMP 2400",
+    "name": "Programming Paradigms",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "COMP 2450",
+    "name": "Software Development 1",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "COMP 2452",
+    "name": "Software Development 2",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "COMP 2280",
+    "name": "Introduction to Computer Systems",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "COMP 3030",
+    "name": "Automata Theory and Formal Languages",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "COMP 3170",
+    "name": "Analysis of Algorithms and Data Structures",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "COMP 3350",
+    "name": "Software Engineering 1",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "COMP 3370",
+    "name": "Computer Organization",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "COMP 3430",
+    "name": "Operating Systems",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  },
+  {
+    "code": "SCI 3980",
+    "name": "Co-operative Education Work Term 1",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "0"
+  },
+  {
+    "code": "SCI 3990",
+    "name": "Co-operative Education Work Term 2",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "0"
+  },
+  {
+    "code": "SCI 4980",
+    "name": "Co-operative Education Work Term 3",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "0"
+  },
+  {
+    "code": "SCI 4990",
+    "name": "Co-operative Education Work Term 4",
+    "min_grade": "if a 4th work term is selected",
+    "prerequisite": "None",
+    "credit_hours": "0"
+  },
+  {
+    "code": "COMP 4620",
+    "name": "Professional Practice in Computer Science",
+    "min_grade": "C",
+    "prerequisite": "None",
+    "credit_hours": "3"
+  }
+]
