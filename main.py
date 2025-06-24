@@ -4,24 +4,20 @@ from urllib.parse import urlparse
 import requests
 
 sample_url = "https://www.google.com/"
+parsed_url =  parsed = urlparse(sample_url)
 
-def analyse_url(url):
+def analyse_url(url, parsed_url):
+    result = {}
+    result['is_https'] = parsed_url.scheme == 'https'
+    result["is_ssl_valid"] = check_ssl()
+    result['url_length'] = len(url)
+    result['domain'] = parsed.netloc
+
+    # other checks by trusted websites for blacklisted urls
+    # check for multiple redirects
+    # try analysiing page content
+
     pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # urlparse breaks down the url into an object like:
 #                                                    ParseResult(
