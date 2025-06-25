@@ -2,6 +2,11 @@ import ssl
 import socket
 from urllib.parse import urlparse
 import requests
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # reads .env
+VT_API_KEY = os.getenv("VT_API_KEY")
 
 sample_url = "https://www.google.com/"
 parsed_url =  parsed = urlparse(sample_url)
@@ -16,8 +21,6 @@ def analyse_url(url, parsed_url):
     # other checks by trusted websites for blacklisted urls
     # check for multiple redirects
     # try analysiing page content
-
-    pass
 
 # urlparse breaks down the url into an object like:
 #                                                    ParseResult(
@@ -39,3 +42,34 @@ def check_ssl(url):
             return True
     except:
         return False
+    
+def check_virustotal(sample_url):
+    url = "https://www.virustotal.com/api/v3/urls"
+
+    payload = { "url": sample_url }
+    headers = {
+        "accept": "application/json",
+        "x-apikey": VT_API_KEY,
+        "content-type": "application/x-www-form-urlencoded"
+    }
+
+    response = requests.post(url, data=payload, headers=headers)
+
+    analysis_id = response.json()['data']["id"]
+    url_analysis = "https://www.virustotal.com/api/v3/analyses/" + analysis_id
+
+    headers = {
+        "accept": "application/json",
+        "x-apikey": VT_API_KEY
+    }
+
+    response = requests.get(url_analysis, headers=headers)
+
+    status = response.json()["data"]["attributes"]["status"] == "completed"
+    stats = response.json()["data"]["attributes"]["stats"]
+
+    print(status)
+    print(stats)
+
+
+check_virustotal(sample_url=sample_url)
