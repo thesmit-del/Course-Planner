@@ -11,7 +11,7 @@ VT_API_KEY = os.getenv("VT_API_KEY")
 def analyse_url(url, parsed_url):
     result = {}
     result['is_https'] = parsed_url.scheme == 'https'
-    result["is_ssl_valid"] = check_ssl(url)
+    result["is_ssl_valid"] = check_ssl(parsed_url)
     result['url_length'] = len(url)
     result['domain'] = parsed_url.netloc
     statistics = check_virustotal(url)
@@ -34,13 +34,13 @@ def analyse_url(url, parsed_url):
 #                                                        query='query=python', 
 #                                                        fragment='section'
 #                                                    )
-def check_ssl(url):
-    parsed = urlparse(url)
+def check_ssl(parsed_url):
+    # parsed = urlparse(parsed_url)
 
     try:
         context = ssl.create_default_context() # automatically checks for certificate validity, hostname and trusted Certificate Authorities
-        with context.wrap_socket(socket.socket(), server_hostname=parsed.netloc) as s: # with statement wnsures socket is automatically closed
-            s.connect((parsed.netloc, 443))
+        with context.wrap_socket(socket.socket(), server_hostname=parsed_url.netloc) as s: # with statement wnsures socket is automatically closed
+            s.connect((parsed_url.netloc, 443))
             cert = s.getpeercert() #returns a dictionary containing certificate info, if invalid it raises an excception
             return True
     except:
@@ -82,5 +82,10 @@ sample_url = "https://www.google.com/"
 parsed_url = urlparse(sample_url)
 
 
-print(analyse_url(sample_url, parsed_url))
+results = analyse_url(sample_url, parsed_url)
+
+if(results["is_https"] == False or results["is_ssl_valid"] == False or results["stats"]["malicious"] > 0 or results["stats"]["suspicious"] > 0):
+    print("Malicious Activity Suspected")
+else:
+    print("No Malicious Activity Detected")
 
