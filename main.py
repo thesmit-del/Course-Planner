@@ -8,16 +8,19 @@ import os
 load_dotenv()  # reads .env
 VT_API_KEY = os.getenv("VT_API_KEY")
 
-sample_url = "https://www.google.com/"
-parsed_url =  parsed = urlparse(sample_url)
-
 def analyse_url(url, parsed_url):
     result = {}
     result['is_https'] = parsed_url.scheme == 'https'
-    result["is_ssl_valid"] = check_ssl()
+    result["is_ssl_valid"] = check_ssl(url)
     result['url_length'] = len(url)
-    result['domain'] = parsed.netloc
+    result['domain'] = parsed_url.netloc
+    statistics = check_virustotal(url)
+    if(statistics == False):
+        result["stats"] = {}
+    else:
+        result["stats"] = statistics
 
+    return result
     # other checks by trusted websites for blacklisted urls
     # check for multiple redirects
     # try analysiing page content
@@ -68,8 +71,16 @@ def check_virustotal(sample_url):
     status = response.json()["data"]["attributes"]["status"] == "completed"
     stats = response.json()["data"]["attributes"]["stats"]
 
-    print(status)
-    print(stats)
+    # print(status)
+    if(status): #returns statistics or false as error flag
+        return stats
+    else:
+        return status
 
 
-check_virustotal(sample_url=sample_url)
+sample_url = "https://www.google.com/"
+parsed_url = urlparse(sample_url)
+
+
+print(analyse_url(sample_url, parsed_url))
+
