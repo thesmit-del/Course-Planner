@@ -7,7 +7,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.render("index.ejs");
+    res.render("index.ejs", { result: null });
 });
 
 app.post("/geturl", async (req, res) => {
@@ -17,7 +17,8 @@ app.post("/geturl", async (req, res) => {
         const response = await axios.post("http://localhost:5000/geturl", {
             url,
         });
-        console.log(response);
+        const result = response.data;
+        return res.render("index.ejs", { result });
     } catch (err) {
         console.error(err.message);
         return res.status(502).json({ error: "Python service unreachable" });

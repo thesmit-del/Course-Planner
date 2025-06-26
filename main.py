@@ -75,12 +75,12 @@ def check_virustotal(sample_url):
         return status
 
 
-# sample_url = "https://www.google.com/"
+# sample_url = "https://www.udemy.com/course/the-complete-web-development-bootcamp/learn/lecture/38911596#lecture-article"
 # parsed_url = urlparse(sample_url)
 
 
 # results = analyse_url(sample_url, parsed_url)
-
+# print(results)
 # if(results["is_https"] == False or results["is_ssl_valid"] == False or results["stats"]["malicious"] > 0 or results["stats"]["suspicious"] > 0):
 #     print("Malicious Activity Suspected")
 # else:
