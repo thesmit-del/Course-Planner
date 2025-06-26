@@ -13,8 +13,21 @@
         </form>
 
         <% if (result) { %>
-        <h2>Result</h2>
-        <pre><%= JSON.stringify(result, null, 2) %></pre>
+        <h2>Results</h2>
+        <div>
+            <h3>HTTPS security</h3>
+            <p><%= result.is_https %></p>
+        </div>
+        <div>
+            <h3>SSL certification</h3>
+            <p><%= result.is_ssl_valid %></p>
+        </div>
+        <div>
+            <h3>Threat Intelligence</h3>
+            <p>malicious : <%= result.stats.malicious %></p>
+            <p>suspicious : <%= result.stats.suspicious %></p>
+            <p>harmless : <%= result.stats.harmless %></p>
+        </div>
         <% } %>
     </body>
 </html>
