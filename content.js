@@ -1,54 +1,55 @@
-// Extracts all hyperlinks from the open Gmail email and stores them in Chrome's local storage.
+// Scrape links from Gmail emails and store them in Chrome storage
 
-// Function to scrape all links from the currently open Gmail email and store them
 function scrapeAndStoreLinks() {
-  // Gmail email body container (class 'a3s' is used by Gmail for email content)
-  const emailBody = document.querySelector(".a3s");
-  const links = [];
+	// find the main content area of the email, Gmail uses a .a3s class for the actual message
+	const emailBody = document.querySelector(".a3s");
+	const links = [];
 
-  // If no email body is found, exit early
-  if (!emailBody) return;
+	// If no email body is found, exit
+	if (!emailBody) return;
 
-  // Find all anchor tags (links) within the email body
-  const anchors = emailBody.querySelectorAll("a");
+	// Find all <a> tags (links) inside the email body 
+	const anchors = emailBody.querySelectorAll("a");
 
-  anchors.forEach(a => {
-    const href = a.href;
-    let label = a.innerText.trim();
+	// For each link (a) we found
+	anchors.forEach(a => {
+		const href = a.href; // the actual URL
+		let label = a.innerText.trim(); 
 
-    // If the link has no visible text, try to use its title or alt attribute, or fallback to 'No Label'
-    if (!label) {
-      label = a.getAttribute("title") || a.getAttribute("alt") || "No Label";
-    }
+		// If the link has no visible text, try to use its title or alt attribute, else use 'No Label'
+		if (!label) {
+			label = a.getAttribute("title") || a.getAttribute("alt") || "No Label";
+		}
 
-    // Only include valid http links
-    if (href && href.startsWith("http")) {
-      links.push({ href, text: label });
-    }
-  });
+		// Only include valid http links
+		if (href && href.startsWith("http")) {
+			links.push({ href, text: label });
+		}
+	});
 
-  // Remove any previously stored links, then save the new set to Chrome's local storage
-  chrome.storage.local.remove("emailLinks", () => {
-    chrome.storage.local.set({ emailLinks: links }, () => {
-      console.log("✅ Saved tagged links:", links);
-    });
-  });
+	// Remove old saved links, then save the new ones to Chrome's local storage
+	chrome.storage.local.remove("emailLinks", () => {
+		chrome.storage.local.set({ emailLinks: links }, () => {
+			console.log("✅ Saved tagged links:", links);
+		});
+	});
 }
 
-// Set up a MutationObserver to watch for changes in the Gmail UI (e.g., when a new email is opened)
+// Watch for changes in the entire Gmail page (e.g., when a new email is opened)
 const targetNode = document.querySelector("body");
 
+// MutationObserver automatically calls the above function when Gmail changes the page
 const observer = new MutationObserver((mutationsList, observer) => {
-  // When the DOM changes, check if a new email body is present
-  const emailBody = document.querySelector(".a3s");
-  if (emailBody) {
-    // Wait a short time to ensure Gmail has finished rendering the email
-    setTimeout(scrapeAndStoreLinks, 500);
-  }
+	// When the DOM changes, check for a new email body
+	const emailBody = document.querySelector(".a3s");
+	if (emailBody) {
+		// Wait for 0.5s to ensure Gmail has finished rendering the email, then recall the function
+		setTimeout(scrapeAndStoreLinks, 500);
+	}
 });
 
-// Start observing the body for changes to child elements and all descendants
+// we tell the observer to start observing the targetNode for changes to child elements and all descendants
 observer.observe(targetNode, {
-  childList: true,
-  subtree: true
+	childList: true,
+	subtree: true 
 });
