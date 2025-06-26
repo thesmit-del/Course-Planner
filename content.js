@@ -1,4 +1,4 @@
-// Content script for scraping links from Gmail emails and storing them in Chrome storage
+// Extracts all hyperlinks from the open Gmail email and stores them in Chrome's local storage.
 
 // Function to scrape all links from the currently open Gmail email and store them
 function scrapeAndStoreLinks() {
