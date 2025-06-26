@@ -4,9 +4,15 @@ from urllib.parse import urlparse
 import requests
 from dotenv import load_dotenv
 import os
+from flask import Flask, request, jsonify
+from flask_cors import CORS   
 
 load_dotenv()  # reads .env
 VT_API_KEY = os.getenv("VT_API_KEY")
+
+
+app = Flask(__name__)
+CORS(app)                         # allow *all* origins during dev
 
 def analyse_url(url, parsed_url):
     result = {}
@@ -16,7 +22,7 @@ def analyse_url(url, parsed_url):
     result['domain'] = parsed_url.netloc
     statistics = check_virustotal(url)
     if(statistics == False):
-        result["stats"] = {}
+        result["stats"] = None
     else:
         result["stats"] = statistics
 
@@ -25,15 +31,6 @@ def analyse_url(url, parsed_url):
     # check for multiple redirects
     # try analysiing page content
 
-# urlparse breaks down the url into an object like:
-#                                                    ParseResult(
-#                                                        scheme='https', 
-#                                                        netloc='example.com:8080', 
-#                                                        path='/path/to/page', 
-#                                                        params='', 
-#                                                        query='query=python', 
-#                                                        fragment='section'
-#                                                    )
 def check_ssl(parsed_url):
     # parsed = urlparse(parsed_url)
 
@@ -78,14 +75,23 @@ def check_virustotal(sample_url):
         return status
 
 
-sample_url = "https://www.google.com/"
-parsed_url = urlparse(sample_url)
+# sample_url = "https://www.google.com/"
+# parsed_url = urlparse(sample_url)
 
 
-results = analyse_url(sample_url, parsed_url)
+# results = analyse_url(sample_url, parsed_url)
 
-if(results["is_https"] == False or results["is_ssl_valid"] == False or results["stats"]["malicious"] > 0 or results["stats"]["suspicious"] > 0):
-    print("Malicious Activity Suspected")
-else:
-    print("No Malicious Activity Detected")
+# if(results["is_https"] == False or results["is_ssl_valid"] == False or results["stats"]["malicious"] > 0 or results["stats"]["suspicious"] > 0):
+#     print("Malicious Activity Suspected")
+# else:
+#     print("No Malicious Activity Detected")
 
+
+@app.post("/geturl")
+def check():
+    data = request.get_json(force=True)
+    url = data.get("url", "")
+    return jsonify(analyse_url(url, urlparse(url)))
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
