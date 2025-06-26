@@ -1,0 +1,20 @@
+# manifest_comments.txt
+
+This file explains the purpose of each section and key in manifest.json for the Email Link Scanner Chrome extension.
+
+- manifest_version: The version of the manifest file format being used (required for Chrome extensions; 3 is the latest major version).
+- name: The name of the extension as it appears in Chrome.
+- version: The version of your extension.
+- permissions: Permissions required by the extension:
+    - scripting: to inject scripts into web pages.
+    - storage: to use the chrome.storage API for saving data.
+    - activeTab: to interact with the current active tab.
+- action: Configuration for the extension's popup window.
+    - default_popup: The HTML file shown when the extension icon is clicked.
+- background: Background script configuration (service worker).
+    - service_worker: The background script file that runs in the background.
+- content_scripts: Content script configuration.
+    - matches: The URLs where the content script will be injected (Gmail in this case).
+    - js: The JavaScript file to inject.
+    - run_at: When to inject the script (after the page is idle).
+    - all_frames: Inject into all frames (not just the top frame). 
