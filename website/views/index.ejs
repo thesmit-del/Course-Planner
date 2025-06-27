@@ -37,25 +37,35 @@
                 </div>
             </div>
 
-            <div class="rectangle"></div>
+            <div class="rectangle">
+                <div id="flip-card" class="cyber-rect">
+                    <div class="results">
+                        <% if (result && result !== {}) { %>
+                        <h2>Results</h2>
+                        <div>
+                            <h3>HTTPS security</h3>
+                            <p><%= result.is_https %></p>
+                        </div>
+                        <div>
+                            <h3>SSL certification</h3>
+                            <p><%= result.is_ssl_valid %></p>
+                        </div>
+                        <div>
+                            <h3>Threat Intelligence</h3>
+                            <p>malicious : <%= result.stats.malicious %></p>
+                            <p>suspicious : <%= result.stats.suspicious %></p>
+                            <p>harmless : <%= result.stats.harmless %></p>
+                        </div>
+                        <% } else { %>
+                        <p>Awaiting URL submission…</p>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
         </section>
-
-        <% if (result) { %>
-        <h2>Results</h2>
-        <div>
-            <h3>HTTPS security</h3>
-            <p><%= result.is_https %></p>
-        </div>
-        <div>
-            <h3>SSL certification</h3>
-            <p><%= result.is_ssl_valid %></p>
-        </div>
-        <div>
-            <h3>Threat Intelligence</h3>
-            <p>malicious : <%= result.stats.malicious %></p>
-            <p>suspicious : <%= result.stats.suspicious %></p>
-            <p>harmless : <%= result.stats.harmless %></p>
-        </div>
-        <% } %>
+        <!-- <script>
+            window.__HAS_RESULT__ = <%= result ? 'true' : 'false' %>;
+        </script> -->
+        <script src="/js/main.js" defer></script>
     </body>
 </html>

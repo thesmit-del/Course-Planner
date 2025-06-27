@@ -35,6 +35,7 @@ app.post("/geturl", async (req, res) => {
     const url = req.body.url;
     if (!isValidUrl(url)) {
         // render with an explicit “error” flag rather than an empty object
+        console.log("VT result:", result);
         return res.render("index.ejs", { result: null, error: "INVALID_URL" });
     }
     try {
