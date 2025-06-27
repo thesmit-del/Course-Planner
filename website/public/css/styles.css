@@ -8,20 +8,12 @@
 }
 
 body {
-    /* display: flex; */
-    /* flex-direction: column;
-    align-items: left;
-    justify-content: center;
-    min-height: 30vh;
-    margin: 0; */
     background-color: #120428;
+    /* background-color: #ffffff; */
 }
-
-/* #urlForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
+#urlForm {
+    padding-top: 3rem;
+}
 
 #urlForm input {
     padding: 0.5rem;
@@ -39,18 +31,35 @@ body {
     margin-top: 20px;
 }
 
+.form-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 40vw;
+    max-width: 600px;
+    padding-top: 1rem;
+}
+
 #urlForm button {
     font-family: "Varela Round", sans-serif;
-    display: block;
+    font-size: 1.05rem;
     margin: 1rem;
     width: 15vw;
     height: 5vh;
-    min-width: 60px;
+    min-width: 6rem;
     color: #ffffff;
     border-color: #361e8b;
-    background-color: #361e8b;
-    border-radius: 50px;
+    background-color: #4b2faf;
+    border-radius: 15px;
     cursor: pointer;
+    margin: 1rem auto 0;
+}
+
+#urlForm button:hover {
+    background-color: #361e8b;
+    border-radius: 15px;
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .hero {
@@ -58,7 +67,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 4rem 6rem;
-    min-height: 70vh;
+    min-height: 80vh;
     background: var(--bg);
 }
 
@@ -76,4 +85,12 @@ body {
 .hero__form {
     display: flex;
     gap: 1rem;
+}
+
+.rectangle {
+    background-color: #4b2faf;
+    width: 30vw;
+    height: 60vh;
+    border-radius: 15px;
+    box-shadow: 15px 15px 15px black;
 }
