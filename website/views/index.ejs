@@ -4,35 +4,68 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/css/styles.css" />
     </head>
     <body>
-        <h1>URL SAFETY CHECKER</h1>
-        <form id="urlForm" action="/geturl" method="POST">
-            <input
-                type="url"
-                name="url"
-                placeholder="Enter URL (must include http:// or https://)"
-                required
-            />
-            <button type="submit">Submit</button>
-        </form>
+        <section class="hero">
+            <div class="hero_content">
+                <div class="title">
+                    <h1 class="line">URL SAFETY</h1>
+                    <h1 class="line next_line">CHECKER</h1>
+                </div>
 
-        <% if (result) { %>
-        <h2>Results</h2>
-        <div>
-            <h3>HTTPS security</h3>
-            <p><%= result.is_https %></p>
-        </div>
-        <div>
-            <h3>SSL certification</h3>
-            <p><%= result.is_ssl_valid %></p>
-        </div>
-        <div>
-            <h3>Threat Intelligence</h3>
-            <p>malicious : <%= result.stats.malicious %></p>
-            <p>suspicious : <%= result.stats.suspicious %></p>
-            <p>harmless : <%= result.stats.harmless %></p>
-        </div>
-        <% } %>
+                <div class="hero_form">
+                    <form id="urlForm" action="/geturl" method="POST">
+                        <input
+                            type="url"
+                            name="url"
+                            placeholder="Enter URL (must include http:// or https://)"
+                            required
+                        />
+                        <div class="form-button">
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="rectangle">
+                <div id="flip-card" class="cyber-rect">
+                    <div class="results">
+                        <% if (result && result !== {}) { %>
+                        <h2>Results</h2>
+                        <div>
+                            <h3>HTTPS security</h3>
+                            <p><%= result.is_https %></p>
+                        </div>
+                        <div>
+                            <h3>SSL certification</h3>
+                            <p><%= result.is_ssl_valid %></p>
+                        </div>
+                        <div>
+                            <h3>Threat Intelligence</h3>
+                            <p>malicious : <%= result.stats.malicious %></p>
+                            <p>suspicious : <%= result.stats.suspicious %></p>
+                            <p>harmless : <%= result.stats.harmless %></p>
+                        </div>
+                        <% } else { %>
+                        <p>Awaiting URL submission…</p>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- <script>
+            window.__HAS_RESULT__ = <%= result ? 'true' : 'false' %>;
+        </script> -->
+        <script src="/js/main.js" defer></script>
     </body>
 </html>
