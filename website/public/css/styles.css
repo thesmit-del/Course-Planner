@@ -1,0 +1,158 @@
+.line {
+    font-size: 8rem;
+    font-family: "Squada One", cursive;
+    text-align: left;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #120428;
+    /* background-color: #ffffff; */
+}
+#urlForm {
+    padding-top: 3rem;
+}
+
+#urlForm input {
+    padding: 0.5rem;
+    border: 0.1rem solid #ccc;
+    border-radius: 4px;
+}
+
+#urlForm input[type="url"] {
+    font-family: "Varela Round", sans-serif;
+    width: 40vw;
+    max-width: 600px;
+    padding: 0.75rem 1rem;
+    font-size: 1.2;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.form-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 40vw;
+    max-width: 600px;
+    padding-top: 1rem;
+}
+
+#urlForm button {
+    font-family: "Varela Round", sans-serif;
+    font-size: 1.05rem;
+    margin: 1rem;
+    width: 15vw;
+    height: 5vh;
+    min-width: 6rem;
+    color: #ffffff;
+    border-color: #361e8b;
+    background-color: #4b2faf;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 1rem auto 0;
+}
+
+#urlForm button:hover {
+    background-color: #361e8b;
+    border-radius: 15px;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 6rem;
+    min-height: 80vh;
+    background: var(--bg);
+}
+
+.hero__content {
+    max-width: 45%;
+}
+
+.hero__content h1 {
+    font-family: "Squada One", cursive;
+    font-size: 5rem;
+    color: var(--white);
+    margin: 0 0 2rem;
+}
+
+.hero__form {
+    display: flex;
+    gap: 1rem;
+}
+
+.rectangle,
+.cyber-rect {
+    perspective: 1000px;
+}
+
+.rectangle {
+    background-color: #4b2faf;
+    width: 30vw;
+    /* padding: 1rem; */
+    height: 60vh;
+    border-radius: 15px;
+    box-shadow: 15px 15px 15px black;
+}
+
+/* 2) The responsive rectangle */
+.cyber-rect {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #4b2faf;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.cyber-rect::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+    /* diagonal “circuit” lines */ repeating-linear-gradient(
+            135deg,
+            transparent,
+            transparent 30px,
+            rgba(255, 255, 255, 0.1) 31px
+        ),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 30px,
+            rgba(255, 255, 255, 0.1) 31px
+        ),
+        /* vertical “binary code” stripes */
+            linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.05) 1px,
+                transparent 1px
+            )
+            0 0/6px 100% repeat-y;
+    background-position: center;
+    background-size: cover;
+    pointer-events: none;
+    animation: binary-shift 8s linear infinite;
+}
+
+@keyframes binary-shift {
+    0% {
+        background-position: 0 0, 0 0, 0 0;
+    }
+    33% {
+        background-position: -40px 0, 40px 0, -6px 0;
+    }
+    66% {
+        background-position: -80px 0, 80px 0, -12px 0;
+    }
+    100% {
+        background-position: -120px 0, 120px 0, -18px 0;
+    }
+}
