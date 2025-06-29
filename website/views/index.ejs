@@ -37,35 +37,56 @@
                 </div>
             </div>
 
-            <div class="rectangle">
-                <div id="flip-card" class="cyber-rect">
-                    <div class="results">
-                        <% if (result && result.stats) { %>
-                        <h2>Results</h2>
-                        <div>
-                            <h3>HTTPS security</h3>
-                            <p><%= result.is_https %></p>
+            <div class="card-container">
+                <div class="flip-card">
+                    <div class="card-front cyber-rect"></div>
+                    <div class="card-back">
+                        <% if (result && Object.keys(result).length) { %>
+                        <h2 class="result-title">Results</h2>
+
+                        <div class="result-group">
+                            <h3 class="result-label">HTTPS security</h3>
+                            <p
+                                class="result-value <%= result.is_https ? 'good' : 'bad' %>"
+                            >
+                                <%= result.is_https ? 'Enabled' : 'Not secure'
+                                %>
+                            </p>
                         </div>
-                        <div>
-                            <h3>SSL certification</h3>
-                            <p><%= result.is_ssl_valid %></p>
+
+                        <div class="result-group">
+                            <h3 class="result-label">SSL certification</h3>
+                            <p
+                                class="result-value <%= result.is_ssl_valid ? 'good' : 'bad' %>"
+                            >
+                                <%= result.is_ssl_valid ? 'Valid'
+                                :'Invalid/Expired' %>
+                            </p>
                         </div>
-                        <div>
-                            <h3>Threat Intelligence</h3>
-                            <p>malicious : <%= result.stats.malicious %></p>
-                            <p>suspicious : <%= result.stats.suspicious %></p>
-                            <p>harmless : <%= result.stats.harmless %></p>
+
+                        <div class="result-group threat">
+                            <h3 class="result-label">Threat intelligence</h3>
+                            <ul class="threat-list">
+                                <li>
+                                    <span>Malicious </span
+                                    ><b><%= result.stats.malicious %></b>
+                                </li>
+                                <li>
+                                    <span>Suspicious </span
+                                    ><b><%= result.stats.suspicious %></b>
+                                </li>
+                                <li>
+                                    <span>Harmless </span
+                                    ><b><%= result.stats.harmless %></b>
+                                </li>
+                            </ul>
                         </div>
                         <% } else { %>
-                        <p>Awaiting URL submission…</p>
+                        <p class="waiting">Awaiting URL submission…</p>
                         <% } %>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- <script>
-            window.__HAS_RESULT__ = <%= result ? 'true' : 'false' %>;
-        </script> -->
-        <script src="/js/main.js" defer></script>
     </body>
 </html>
