@@ -1,0 +1,48 @@
+/* Fixed popup size */
+html, body {
+  width: 400px;
+  height: 450px;
+  margin: 0;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  overflow-y: auto;
+}
+
+/* Heading */
+h3 {
+  margin-top: 0;
+  color: #222;
+}
+
+/* Link list */
+ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+span {
+  font-size: 13px;
+}
+
+
+.hover-popup {
+	position: absolute;
+	background: #f9f9f9;
+	color: black;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+	z-index: 999;
+	font-size: 10px;
+	white-space: pre-wrap;
+	max-width: 300px;
+}

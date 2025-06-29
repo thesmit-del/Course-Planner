@@ -14,7 +14,7 @@ function scrapeAndStoreLinks() {
 	// For each link (a) we found
 	anchors.forEach(a => {
 		const href = a.href; // the actual URL
-		let label = a.innerText.trim(); 
+		let label = a.innerText.trim();
 
 		// If the link has no visible text, try to use its title or alt attribute, else use 'No Label'
 		if (!label) {
@@ -28,11 +28,18 @@ function scrapeAndStoreLinks() {
 	});
 
 	// Remove old saved links, then save the new ones to Chrome's local storage
-	chrome.storage.local.remove("emailLinks", () => {
-		chrome.storage.local.set({ emailLinks: links }, () => {
-			console.log("✅ Saved tagged links:", links);
-		});
-	});
+	try {
+		if (chrome.runtime && chrome.runtime.id) {
+			chrome.storage.local.remove("emailLinks", () => {
+				chrome.storage.local.set({ emailLinks: links }, () => {
+					console.log("Saved tagged links:", links);
+				});
+			});
+		}
+	} catch (err) {
+		console.warn("Skipping storage update due to extension context issue:", err);
+	}
+
 }
 
 // Watch for changes in the entire Gmail page (e.g., when a new email is opened)
@@ -51,5 +58,5 @@ const observer = new MutationObserver((mutationsList, observer) => {
 // we tell the observer to start observing the targetNode for changes to child elements and all descendants
 observer.observe(targetNode, {
 	childList: true,
-	subtree: true 
+	subtree: true
 });
