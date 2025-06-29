@@ -12,7 +12,7 @@ VT_API_KEY = os.getenv("VT_API_KEY")
 
 
 app = Flask(__name__)
-CORS(app)                         # allow *all* origins during dev
+CORS(app, origins=["chrome-extension://*"])                         # allow *all* origins during dev
 
 def analyse_url(url, parsed_url):
     result = {}
