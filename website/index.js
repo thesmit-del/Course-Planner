@@ -9,9 +9,9 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-// 1) Tell Express where your templates live
+// Tell Express where your templates live
 app.set("views", path.join(__dirname, "views"));
-// 2) Tell Express to use EJS for all ".ejs" files
+// Tell Express to use EJS for all ".ejs" files
 app.set("view engine", "ejs");
 
 app.use(express.static(path.join(__dirname, "public")));
