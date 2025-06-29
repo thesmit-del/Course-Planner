@@ -110,7 +110,7 @@ body {
     transform-origin: center center;
 }
 
-.card-container:hover .flip-card {
+.card-container.flipped .flip-card {
     transform: rotateY(180deg);
 }
 
@@ -217,7 +217,7 @@ body {
     border: 1rem solid #ffcc007a;
     border-radius: 10px;
     box-shadow: 15px 15px 15px black;
-    padding: 1rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
@@ -232,11 +232,11 @@ body {
 
 .result-label {
     margin: 0;
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: #361e8b;
+    color: black;
 }
 
 .result-value {
@@ -274,4 +274,35 @@ body {
     font-style: italic;
     opacity: 0.7;
     color: #ffcc00;
+}
+
+.back-button-container {
+    display: flex;
+    justify-content: flex-end; /* push it to the right */
+    margin-top: 0;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem; /* small circle */
+    height: 2.5rem;
+    /* background-color: #ffcc00; your accent color */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5rem; /* big enough for the arrow */
+    border-radius: 50%; /* make it circular */
+    box-shadow: 0 10px 14px black;
+    transition: transform 0.2s ease;
+}
+
+.back-button:hover {
+    transform: scale(1.1);
+}
+
+.result-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
