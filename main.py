@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS   
+import time
 
 load_dotenv()  # reads .env
 VT_API_KEY = os.getenv("VT_API_KEY")
@@ -63,17 +64,14 @@ def check_virustotal(sample_url):
         "x-apikey": VT_API_KEY
     }
 
-    response = requests.get(url_analysis, headers=headers)
+    for _ in range(10):         
+        resp = requests.get(url_analysis, headers=headers).json()
+        attrs = resp["data"]["attributes"]
+        if attrs["status"] == "completed":
+            return attrs["stats"]
+        time.sleep(1)             
 
-    status = response.json()["data"]["attributes"]["status"] == "completed"
-    stats = response.json()["data"]["attributes"]["stats"]
-
-    # print(status)
-    if(status): #returns statistics or false as error flag
-        return stats
-    else:
-        return status
-
+    return {"malicious": 0, "suspicious": 0, "harmless": 0, "timeout": 0, "undetected": 0}
 
 # sample_url = "https://www.udemy.com/course/the-complete-web-development-bootcamp/learn/lecture/38911596#lecture-article"
 # parsed_url = urlparse(sample_url)

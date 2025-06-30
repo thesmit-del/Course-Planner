@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Cyber Sentinel</title>
         <link
             href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
             rel="stylesheet"
@@ -18,8 +18,8 @@
         <section class="hero">
             <div class="hero_content">
                 <div class="title">
-                    <h1 class="line">URL SAFETY</h1>
-                    <h1 class="line next_line">CHECKER</h1>
+                    <h1 class="line">CYBER</h1>
+                    <h1 class="line next_line">SENTINEL</h1>
                 </div>
 
                 <div class="hero_form">
@@ -37,12 +37,26 @@
                 </div>
             </div>
 
-            <div class="card-container">
+            <div
+                class="card-container"
+                data-has-result="<%= result && Object.keys(result).length ? 'true' : 'false' %>"
+            >
                 <div class="flip-card">
                     <div class="card-front cyber-rect"></div>
                     <div class="card-back">
                         <% if (result && Object.keys(result).length) { %>
-                        <h2 class="result-title">Results</h2>
+                        <div class="result-heading">
+                            <h2 class="result-title">Results</h2>
+                            <div class="back-button-container">
+                                <a
+                                    href="/"
+                                    class="back-button"
+                                    aria-label="Go back home"
+                                >
+                                    &#8592;
+                                </a>
+                            </div>
+                        </div>
 
                         <div class="result-group">
                             <h3 class="result-label">HTTPS security</h3>
@@ -88,5 +102,17 @@
                 </div>
             </div>
         </section>
+        <script>
+            window.addEventListener("DOMContentLoaded", () => {
+                const container = document.querySelector(".card-container");
+                // only flip if the server actually returned a result
+                if (container.dataset.hasResult === "true") {
+                    // schedule it on the next frame so the transition can play
+                    requestAnimationFrame(() => {
+                        container.classList.add("flipped");
+                    });
+                }
+            });
+        </script>
     </body>
 </html>
