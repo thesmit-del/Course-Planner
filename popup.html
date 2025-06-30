@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="popup.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+        rel="stylesheet"
+    />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="popup.css" />
 
-<head>
-	<meta charset="UTF-8">
-	<title>Email Safety Scanner</title>
-	<link rel="stylesheet" href="popup.css">
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Email Safety Scanner</title>
+        <link rel="stylesheet" href="popup.css" />
+    </head>
 
-<body>
-	<h2>Email Safety Scanner</h2>
-	<div id="buttonContainer">
-		<button id="scanEmail"><span>✅</span> Scan Email</button>
-		<button id="scanExtra"><span>🔗</span> Scan Additional Links</button>
-	</div>
-	<div id="results" style="display:none;">
-		<ul id="linkList"></ul>
-	</div>
-	<script src="popup.js"></script>
-</body>
-
+    <body>
+        <h2 class="heading">Email Safety Scanner</h2>
+        <div id="buttonContainer">
+            <button id="scanEmail">Scan Email</button>
+            <button id="scanExtra">Scan a URL</button>
+        </div>
+        <div id="results" style="display: none">
+            <ul id="linkList"></ul>
+        </div>
+        <script src="popup.js"></script>
+    </body>
 </html>
