@@ -2,14 +2,30 @@
     "manifest_version": 3,
     "name": "Cyber Sentinel",
     "version": "1.0",
-    "permissions": ["scripting", "storage", "activeTab", "tabs", "storage"],
+    "permissions": [
+        "scripting",
+        "storage",
+        "activeTab",
+        "tabs",
+        "storage"
+    ],
+    "icons": {
+        "128": "media/logo.png"
+    },
     "action": {
+        "default_icon": {
+            "128": "media/logo.png"
+        },
         "default_popup": "popup.html"
     },
     "content_scripts": [
         {
-            "matches": ["*://mail.google.com/*"],
-            "js": ["content.js"],
+            "matches": [
+                "*://mail.google.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
             "run_at": "document_idle",
             "all_frames": true
         }
