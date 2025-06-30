@@ -116,7 +116,7 @@ This is the website;
 
 <p >
     <img src="media/results_hp.png" width="500"/>
-    <img src="media/card.png" width="240"/>
+    <img src="media/card.png" width="245"/>
 </p>
 ---
 
