@@ -110,13 +110,13 @@ node index.js
 
 ## 📸 Screenshots & 🎥 Video
 This is the website;
-<p align="">
+<p >
   <img src="media/homepage.png" width="700"/>
 </p>
 
-<p align="">
+<p >
     <img src="media/results_hp.png" width="500"/>
-    <img src="media/card.png" width="250"/>
+    <img src="media/card.png" width="240"/>
 </p>
 ---
 
