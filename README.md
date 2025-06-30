@@ -68,7 +68,7 @@ Both components communicate with a Python/Flask backend (VirusTotal-powered) to 
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/your-username/cyber-sentinel.git
+git clone https://github.com/thesmit-del/cyber-sentinel.git
 cd cyber-sentinel
 ```
 
