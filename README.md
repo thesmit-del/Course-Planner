@@ -113,7 +113,7 @@ node index.js
 
 ## 📸 Screenshots & 🎥 Video
 
-**This is the extension:**
+**Images of the extension:**
 
 <p >
     <img src="media/extension.png" width="600"/>
@@ -135,7 +135,7 @@ node index.js
   <img src="media/ext-animation.gif" width="1000"/>
 </p>
 
-**This is the website:**
+**Images of the website:**
 
 <p >
   <img src="media/website_homepage.png" width="600"/>
