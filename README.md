@@ -1,5 +1,6 @@
 <h1 align="center"><b>Cyber Sentinel</b></h1>
 
+
 ## 📖 Table of Contents
 
 - [🚀 Introduction](#-introduction)
@@ -133,8 +134,11 @@ This is the website:
     <img src="media/website_card.png" width="245"/>
 </p>
 
-Demo of the website:
-![Demo](media/website-animation.gif)
+Demo of the website;
+<p>
+  <img src="media/website-animation.gif" width="245"/>
+</p>
+
 
 
 ---
