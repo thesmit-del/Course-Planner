@@ -43,6 +43,7 @@ function runEmailScan() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ url: link.href }),
+                credentials: "omit"
             })
                 .then((response) => response.json())
                 .then((data) => {

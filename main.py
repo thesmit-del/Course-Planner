@@ -11,9 +11,13 @@ import time
 load_dotenv()  # reads .env
 VT_API_KEY = os.getenv("VT_API_KEY")
 
-
 app = Flask(__name__)
-CORS(app, origins=["chrome-extension://*"])                         # allow *all* origins during dev
+CORS(app,
+     origins="*",
+     supports_credentials=True,
+     allow_headers="*",
+     methods=["GET", "POST", "OPTIONS"]
+)
 
 def analyse_url(url, parsed_url):
     result = {}
@@ -45,45 +49,51 @@ def check_ssl(parsed_url):
         return False
     
 def check_virustotal(sample_url):
-    url = "https://www.virustotal.com/api/v3/urls"
+    import base64
 
-    payload = { "url": sample_url }
-    headers = {
-        "accept": "application/json",
-        "x-apikey": VT_API_KEY,
-        "content-type": "application/x-www-form-urlencoded"
-    }
+    # VirusTotal uses the URL-encoded ID as key
+    url_id = base64.urlsafe_b64encode(sample_url.encode()).decode().strip("=")
 
-    response = requests.post(url, data=payload, headers=headers)
+    # First: try to get an existing report
+    url_report = f"https://www.virustotal.com/api/v3/urls/{url_id}"
+    headers = {"accept": "application/json", "x-apikey": VT_API_KEY}
 
-    analysis_id = response.json()['data']["id"]
-    url_analysis = "https://www.virustotal.com/api/v3/analyses/" + analysis_id
+    report_resp = requests.get(url_report, headers=headers)
+    if report_resp.status_code == 200:
+        print(f"✅ [DEBUG] Found cached report for {sample_url}")
+        data = report_resp.json()
+        return data["data"]["attributes"]["last_analysis_stats"]
 
-    headers = {
-        "accept": "application/json",
-        "x-apikey": VT_API_KEY
-    }
+    # If no existing report, POST to scan
+    print(f"🚀 [DEBUG] Submitting new scan for {sample_url}")
+    scan_resp = requests.post(
+        "https://www.virustotal.com/api/v3/urls",
+        data={"url": sample_url},
+        headers={
+            "accept": "application/json",
+            "x-apikey": VT_API_KEY,
+            "content-type": "application/x-www-form-urlencoded"
+        }
+    )
 
-    for _ in range(10):         
-        resp = requests.get(url_analysis, headers=headers).json()
-        attrs = resp["data"]["attributes"]
-        if attrs["status"] == "completed":
-            return attrs["stats"]
-        time.sleep(1)             
+    if scan_resp.status_code != 200:
+        print(f"❌ VirusTotal POST error: {scan_resp.json()}")
+        return None
 
+    analysis_id = scan_resp.json()["data"]["id"]
+    url_analysis = f"https://www.virustotal.com/api/v3/analyses/{analysis_id}"
+
+    # poll for results
+    for _ in range(10):
+        analysis_resp = requests.get(url_analysis, headers=headers).json()
+        status = analysis_resp["data"]["attributes"]["status"]
+        print(f"⬅️ [DEBUG] Analysis poll status: {status}")
+        if status == "completed":
+            return analysis_resp["data"]["attributes"]["stats"]
+        time.sleep(1)
+
+    # fallback if poll never completes
     return {"malicious": 0, "suspicious": 0, "harmless": 0, "timeout": 0, "undetected": 0}
-
-# sample_url = "https://www.udemy.com/course/the-complete-web-development-bootcamp/learn/lecture/38911596#lecture-article"
-# parsed_url = urlparse(sample_url)
-
-
-# results = analyse_url(sample_url, parsed_url)
-# print(results)
-# if(results["is_https"] == False or results["is_ssl_valid"] == False or results["stats"]["malicious"] > 0 or results["stats"]["suspicious"] > 0):
-#     print("Malicious Activity Suspected")
-# else:
-#     print("No Malicious Activity Detected")
-
 
 @app.post("/geturl")
 def check():

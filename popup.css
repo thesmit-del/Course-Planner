@@ -79,6 +79,7 @@ body {
     padding: 0.5rem 0.75rem;
     border-radius: 0.5rem;
     font-size: 0.8rem;
+    height: 20rem;
     max-width: 220px;
     white-space: pre-wrap;
     z-index: 100;
