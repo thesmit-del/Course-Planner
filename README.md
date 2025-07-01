@@ -126,7 +126,7 @@ This is the extension:
 
 <p >
     <img src="media/risky_scan.png" width="600"/>
-    <img src="media/risky_card.png" width="205"/>
+    <img src="media/risky_card.png" width="207"/>
 </p>
 
 This is the website:
@@ -137,7 +137,7 @@ This is the website:
 
 <p >
     <img src="media/website_results.png" width="500"/>
-    <img src="media/website_card.png" width="220"/>
+    <img src="media/website_card.png" width="240"/>
 </p>
 
 Demo of the website;
