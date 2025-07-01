@@ -120,8 +120,9 @@ This is the website;
 </p>
 
 Demo of the website;
-![Demo Animation](media/Website_animation.gif)
-
+<p align="center">
+  <img src="media/website_animation.gif" width="500" />
+</p>
 ---
 
 ## 🤝 Contributing
