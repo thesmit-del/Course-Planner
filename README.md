@@ -113,7 +113,7 @@ node index.js
 
 ## 📸 Screenshots & 🎥 Video
 
-This is the extension:
+**This is the extension:**
 
 <p >
     <img src="media/extension.png" width="600"/>
@@ -129,7 +129,13 @@ This is the extension:
     <img src="media/risky_card.png" width="207"/>
 </p>
 
-This is the website:
+**Demo of the extension;**
+
+<p>
+  <img src="media/ext-animation.gif" width="1000"/>
+</p>
+
+**This is the website:**
 
 <p >
   <img src="media/website_homepage.png" width="600"/>
@@ -140,7 +146,7 @@ This is the website:
     <img src="media/website_card.png" width="250"/>
 </p>
 
-Demo of the website;
+**Demo of the website;**
 
 <p>
   <img src="media/website_animation.gif" width="1000"/>
