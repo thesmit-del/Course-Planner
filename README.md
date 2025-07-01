@@ -113,37 +113,43 @@ node index.js
 
 ## 📸 Screenshots & 🎥 Video
 
-This is the extension:
+**Images of the extension:**
 
 <p >
-    <img src="media/extension.png" width="700"/>
-    <img src="media/normal_extension.png" width="226"/>
+    <img src="media/extension.png" width="600"/>
+    <img src="media/normal_extension.png" width="193"/>
 </p>
 <p>
-  <img src="media/safe_scan.png" width="700" align="middle" alt="Safe scan"/>
-  <img src="media/safe_card.png" width="243" align="middle" alt="Safe card"/>
+  <img src="media/safe_scan.png" width="600" align="middle" alt="Safe scan"/>
+  <img src="media/safe_card.png" width="220" align="middle" alt="Safe card"/>
 </p>
 
 <p >
-    <img src="media/risky_scan.png" width="700"/>
-    <img src="media/risky_card.png" width="243"/>
+    <img src="media/risky_scan.png" width="600"/>
+    <img src="media/risky_card.png" width="207"/>
 </p>
 
-This is the website:
+**Demo of the extension;**
+
+<p>
+  <img src="media/ext-animation.gif" width="1000"/>
+</p>
+
+**Images of the website:**
 
 <p >
-  <img src="media/website_homepage.png" width="700"/>
+  <img src="media/website_homepage.png" width="600"/>
 </p>
 
 <p >
     <img src="media/website_results.png" width="500"/>
-    <img src="media/website_card.png" width="245"/>
+    <img src="media/website_card.png" width="250"/>
 </p>
 
-Demo of the website;
+**Demo of the website;**
 
 <p>
-  <img src="media/website_animation.gif" width="700"/>
+  <img src="media/website_animation.gif" width="1000"/>
 </p>
 
 ---
