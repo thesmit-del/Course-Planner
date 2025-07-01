@@ -111,13 +111,17 @@ node index.js
 ## 📸 Screenshots & 🎥 Video
 This is the website;
 <p >
-  <img src="media/homepage.png" width="700"/>
+  <img src="media/website_homepage.png" width="700"/>
 </p>
 
 <p >
-    <img src="media/results_hp.png" width="500"/>
-    <img src="media/card.png" width="245"/>
+    <img src="media/website_results.png" width="500"/>
+    <img src="media/website_card.png" width="245"/>
 </p>
+
+Demo of the website;
+![Demo Animation](media/Website_animation.gif)
+
 ---
 
 ## 🤝 Contributing
