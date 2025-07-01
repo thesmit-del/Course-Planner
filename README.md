@@ -119,7 +119,7 @@ This is the extension:
     <img src="media/extension.png" width="700"/>
     <img src="media/normal_extension.png" width="226"/>
 </p>
-<p style="display: flex; align-items: center; justify-content: center: flex-direction: row">
+<p style="display: flex; align-items: center; justify-content: center; flex-direction: row">
     <img src="media/safe_scan.png" width="700"/>
     <img src="media/safe_card.png" width="243"/>
 </p>
