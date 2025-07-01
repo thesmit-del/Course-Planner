@@ -116,23 +116,23 @@ node index.js
 This is the extension:
 
 <p >
-    <img src="media/extension.png" width="700"/>
+    <img src="media/extension.png" width="600"/>
     <img src="media/normal_extension.png" width="226"/>
 </p>
 <p>
-  <img src="media/safe_scan.png" width="700" align="middle" alt="Safe scan"/>
+  <img src="media/safe_scan.png" width="600" align="middle" alt="Safe scan"/>
   <img src="media/safe_card.png" width="243" align="middle" alt="Safe card"/>
 </p>
 
 <p >
-    <img src="media/risky_scan.png" width="700"/>
+    <img src="media/risky_scan.png" width="600"/>
     <img src="media/risky_card.png" width="243"/>
 </p>
 
 This is the website:
 
 <p >
-  <img src="media/website_homepage.png" width="700"/>
+  <img src="media/website_homepage.png" width="600"/>
 </p>
 
 <p >
@@ -143,7 +143,7 @@ This is the website:
 Demo of the website;
 
 <p>
-  <img src="media/website_animation.gif" width="700"/>
+  <img src="media/website_animation.gif" width="600"/>
 </p>
 
 ---
