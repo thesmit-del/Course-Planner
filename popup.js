@@ -43,7 +43,7 @@ function runEmailScan() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ url: link.href }),
-                credentials: "omit"
+                credentials: "omit",
             })
                 .then((response) => response.json())
                 .then((data) => {
@@ -66,8 +66,8 @@ function runEmailScan() {
                         hoverBox.className = "hover-popup";
                         // hoverBox.textContent = JSON.stringify(data, null, 2);
                         hoverBox.innerHTML = `
+        <div class="popup-container">
   <div class="popup-header">Scan Results</div>
-  <div class="popup-row"><strong>URL:</strong> ${data.url}</div>
   <div class="popup-row"><strong>HTTPS:</strong> ${
       data.is_https ? "Yes" : "No"
   }</div>
@@ -80,6 +80,7 @@ function runEmailScan() {
     <div><strong>Malicious:</strong> ${data.stats?.malicious ?? 0}</div>
     <!-- add any fields you want -->
   </div>
+        </div>
 `;
                         wrapper.appendChild(resultSpan);
                         wrapper.appendChild(hoverBox);
