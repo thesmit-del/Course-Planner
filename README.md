@@ -137,7 +137,7 @@ This is the website:
 
 <p >
     <img src="media/website_results.png" width="500"/>
-    <img src="media/website_card.png" width="240"/>
+    <img src="media/website_card.png" width="250"/>
 </p>
 
 Demo of the website;
