@@ -143,7 +143,7 @@ This is the website:
 Demo of the website;
 
 <p>
-  <img src="media/website_animation.gif" width="900"/>
+  <img src="media/website_animation.gif" width="1000"/>
 </p>
 
 ---
