@@ -1,21 +1,22 @@
 <h1 align="center"><b>Cyber Sentinel</b></h1>
 
-
 ## 📖 Table of Contents
 
-- [🚀 Introduction](#-introduction)
-- [✨ Features](#-features)
-- [🛡️ Why Cyber Sentinel?](#-why-cyber-sentinel)
-- [🛠 Technology Stack](#-technology-stack)
-- [⚙️ Installation](#️-installation)
-  - [1. Clone the Repo](#1-clone-the-repo)
-  - [2. Python/Flask API](#2-pythonflask-api)
-  - [3. Website Frontend](#3-website-frontend)
-  - [4. Browser Extension](#4-browser-extension)
-- [▶️ Running the Demo](#️-running-the-demo)
-- [🤝 Contributing](#-contributing)
-- [🤝 Collaborators](#-collaborators)
-- [📄 License](#-license)
+-   [� Table of Contents](#-table-of-contents)
+-   [🚀 Introduction](#-introduction)
+-   [✨ Features](#-features)
+-   [🛡️ Why Cyber Sentinel?](#️-why-cyber-sentinel)
+-   [🛠 Technology Stack](#-technology-stack)
+-   [⚙️ Installation](#️-installation)
+    -   [1. Clone the Repo](#1-clone-the-repo)
+    -   [2. Python/Flask API (localhost:5000)](#2-pythonflask-api-localhost5000)
+    -   [3. Website Frontend (localhost:3000)](#3-website-frontend-localhost3000)
+    -   [4. Browser Extension](#4-browser-extension)
+-   [▶️ Running the Demo](#️-running-the-demo)
+-   [📸 Screenshots \& 🎥 Video](#-screenshots---video)
+-   [🤝 Contributing](#-contributing)
+-   [🤝 Collaborators](#-collaborators)
+-   [📄 License](#-license)
 
 ---
 
@@ -31,7 +32,8 @@ Both components communicate with a Python/Flask backend (VirusTotal-powered) to 
 ---
 
 ## ✨ Features
--   **Scan all links** in an email automatically  
+
+-   **Scan all links** in an email automatically
 -   Labels each link clearly as **Safe** or **Risky** with easy-to-understand icons
 -   Shows more details on why a link is risky if you hover
 -   Keeps your email content private — only the links are scanned
@@ -43,11 +45,11 @@ Both components communicate with a Python/Flask backend (VirusTotal-powered) to 
 
 ## 🛡️ Why Cyber Sentinel?
 
-- Saves you time by scanning links in one go  
-- Finds hidden or tricky links you might not see  
-- Helps you feel safer by showing why a link is dangerous  
-- Easy to use, even if you are not technical  
-- Keeps you in control of your security  
+-   Saves you time by scanning links in one go
+-   Finds hidden or tricky links you might not see
+-   Helps you feel safer by showing why a link is dangerous
+-   Easy to use, even if you are not technical
+-   Keeps you in control of your security
 
 ---
 
@@ -63,7 +65,6 @@ Both components communicate with a Python/Flask backend (VirusTotal-powered) to 
 
 ---
 
-
 ## ⚙️ Installation
 
 ### 1. Clone the Repo
@@ -74,6 +75,7 @@ cd cyber-sentinel
 ```
 
 ### 2. Python/Flask API (localhost:5000)
+
 get API key from VirusTotal and set VT_API_KEY in .env
 
 ```bash
@@ -110,21 +112,25 @@ node index.js
 ---
 
 ## 📸 Screenshots & 🎥 Video
+
 This is the extension:
+
 <p >
     <img src="media/extension.png" width="700"/>
     <img src="media/normal_extension.png" width="226"/>
 </p>
-<p style="display: flex; align-items: center; justify-content: center: flex-direction: row">
-    <img src="media/safe_scan.png" width="700"/>
-    <img src="media/safe_card.png" width="243"/>
+<p>
+  <img src="media/safe_scan.png" width="700" align="middle" alt="Safe scan"/>
+  <img src="media/safe_card.png" width="243" align="middle" alt="Safe card"/>
 </p>
+
 <p >
     <img src="media/risky_scan.png" width="700"/>
     <img src="media/risky_card.png" width="243"/>
 </p>
 
 This is the website:
+
 <p >
   <img src="media/website_homepage.png" width="700"/>
 </p>
@@ -135,11 +141,10 @@ This is the website:
 </p>
 
 Demo of the website;
+
 <p>
-  <img src="media/website-animation.gif" width="245"/>
+  <img src="media/website_animation.gif" width="700"/>
 </p>
-
-
 
 ---
 
@@ -155,8 +160,8 @@ This project is **under active development**. We welcome:
 
 ## 🤝 Collaborators
 
-- Aryan Vekariya (GitHub: [@Aryan0826] (https://github.com/Aryan0826))  
-- Smit Delwadia (GitHub: [@thesmit-del] (https://github.com/thesmit-del))
+-   Aryan Vekariya (GitHub: [@Aryan0826] (https://github.com/Aryan0826))
+-   Smit Delwadia (GitHub: [@thesmit-del] (https://github.com/thesmit-del))
 
 ---
 
