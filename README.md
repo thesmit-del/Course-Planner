@@ -121,12 +121,12 @@ This is the extension:
 </p>
 <p>
   <img src="media/safe_scan.png" width="600" align="middle" alt="Safe scan"/>
-  <img src="media/safe_card.png" width="243" align="middle" alt="Safe card"/>
+  <img src="media/safe_card.png" width="220" align="middle" alt="Safe card"/>
 </p>
 
 <p >
     <img src="media/risky_scan.png" width="600"/>
-    <img src="media/risky_card.png" width="200"/>
+    <img src="media/risky_card.png" width="205"/>
 </p>
 
 This is the website:
