@@ -110,7 +110,21 @@ node index.js
 ---
 
 ## 📸 Screenshots & 🎥 Video
-This is the website;
+This is the extension:
+<p >
+    <img src="media/extension.png" width="700"/>
+    <img src="media/normal_extension.png" width="226"/>
+</p>
+<p style="display: flex; align-items: center; justify-content: center: flex-direction: row">
+    <img src="media/safe_scan.png" width="700"/>
+    <img src="media/safe_card.png" width="243"/>
+</p>
+<p >
+    <img src="media/risky_scan.png" width="700"/>
+    <img src="media/risky_card.png" width="243"/>
+</p>
+
+This is the website:
 <p >
   <img src="media/website_homepage.png" width="700"/>
 </p>
