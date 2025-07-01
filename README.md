@@ -1,5 +1,6 @@
 <h1 align="center"><b>Cyber Sentinel</b></h1>
 
+
 ## 📖 Table of Contents
 
 - [🚀 Introduction](#-introduction)
