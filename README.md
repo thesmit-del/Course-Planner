@@ -119,10 +119,11 @@ This is the extension:
     <img src="media/extension.png" width="700"/>
     <img src="media/normal_extension.png" width="226"/>
 </p>
-<p align="center">
-    <img src="media/safe_scan.png" width="700"/>
-    <img src="media/safe_card.png" width="243"/>
+<p>
+  <img src="media/safe_scan.png" width="700" align="middle" alt="Safe scan"/>
+  <img src="media/safe_card.png" width="243" align="middle" alt="Safe card"/>
 </p>
+
 <p >
     <img src="media/risky_scan.png" width="700"/>
     <img src="media/risky_card.png" width="243"/>
