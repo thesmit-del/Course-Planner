@@ -117,7 +117,7 @@ This is the extension:
 
 <p >
     <img src="media/extension.png" width="600"/>
-    <img src="media/normal_extension.png" width="226"/>
+    <img src="media/normal_extension.png" width="200"/>
 </p>
 <p>
   <img src="media/safe_scan.png" width="600" align="middle" alt="Safe scan"/>
@@ -126,7 +126,7 @@ This is the extension:
 
 <p >
     <img src="media/risky_scan.png" width="600"/>
-    <img src="media/risky_card.png" width="243"/>
+    <img src="media/risky_card.png" width="200"/>
 </p>
 
 This is the website:
@@ -137,7 +137,7 @@ This is the website:
 
 <p >
     <img src="media/website_results.png" width="500"/>
-    <img src="media/website_card.png" width="245"/>
+    <img src="media/website_card.png" width="200"/>
 </p>
 
 Demo of the website;
