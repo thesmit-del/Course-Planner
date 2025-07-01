@@ -121,7 +121,7 @@ This is the website;
 </p>
 
 Demo of the website;
-![Demo](media/website_animation.gif)
+![Demo](media/website-animation.gif)
 
 ---
 
